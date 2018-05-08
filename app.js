@@ -62,10 +62,12 @@ console.log("RSA Key loaded.");
 //fs.writeFileSync("publicKey.pem", key.exportKey('pkcs8-public-pem'));
 //console.log("RSA Key Pair saved.");
 
+var cors = require('cors');
 var app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
+app.use(cors());
 
 // Routes
 app.get('/', function(req, res) {
